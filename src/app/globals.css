@@ -1,107 +1,2301 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: #397524 #DFE9EB;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+*::-webkit-scrollbar {
+  height: 10px;
+  width: 10px;
+}
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #DFE9EB;
+}
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+*::-webkit-scrollbar-track:hover {
+  background-color: #B8C0C2;
+}
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+*::-webkit-scrollbar-track:active {
+  background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--color-tomato);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #ec5048;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #ec6a63;
+}
+
+body {
+  font-family: var(--regular-24px-32);
+  background-color: var(--color-gray-200);
+}
+
+:root {
+  /* fonts */
+  --regular-24px-32: "Source Sans Pro";
+
+  /* font sizes */
+  --font-size-mid: 17px;
+  --font-size-mini: 15px;
+  --font-size-xl: 20px;
+  --font-size-base: 16px;
+  --font-size-2xl: 21px;
+  --regular-24px-32-size: 24px;
+  --font-size-lg: 18px;
+  --font-size-9xl: 28px;
+
+  /* Colors */
+  --color-gray-100: #0d152f;
+  /* --color-gray-200: #0b0b0b; */
+  --color-gray-200: #0A0F1F;
+  --color-gray-300: #080C19;
+  --color-light-black: #0B0B0B;
+  --color-tomato: #ec4036;
+  --color-white: #fff;
+  --color-darkslategray: #3a3a3a;
+  --color-light-blue-grey: #B5CDFF;
+  --color-dark-blue-grey: #3F5D9A;
+
+  --br-5xs: 8px;
+  --br-xs: 12px;
+  --br-2xs: 11px;
+}
+
+
+.intro_screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-image: url(../assets/slide-img.jpg);
+  background-size: cover;
+  z-index: 1000;
+
+}
+
+#intro_logo {
+  width: 15%;
+  left: 43%;
+  position: absolute;
+  animation: slideLeft 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes slideLeft {
+  0% {
+    left: 43%;
+  }
+
+  100% {
+    left: 25%;
+  }
+
+}
+
+
+
+#intro_signup {
+  display: none;
+  position: absolute;
+  left: 55%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: left;
+  padding: 20px 40px;
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+  font-family: var(--regular-16px-24);
+  width: 424px;
+  min-height: 483px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(8, 12, 25, 0.80);
+  animation: fadeIn 2s ease-in-out 8s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    display: flex;
+    opacity: 1;
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.signup_btn_mobile {
+  display: none;
 }
 
-html,
-body {
-  max-width: 100vw;
+.please_login_intro {
+  width: 328px;
+}
+
+.register_page {
+  display: none;
+}
+
+.username_intro {
+  font-size: var(--font-size-lg);
+  width: 328px;
+  height: 20px;
+}
+
+.rectangle_div_intro {
+  padding: 10px;
+  font-size: larger;
+  color: var(--color-white);
+  border-radius: var(--br-2xs);
+  border: 1px solid var(--color-white);
+  background-color: var(--color-gray-200);
+  box-sizing: border-box;
+  width: 339px;
+  height: 50px;
+}
+
+.password_intro {
+  font-size: var(--font-size-lg);
+  width: 328px;
+  height: 20px;
+}
+
+.frame_child3_intros {
+  padding: 10px;
+  font-size: larger;
+  color: var(--color-white);
+  border-radius: var(--br-2xs);
+  border: 1px solid var(--color-white);
+  background-color: var(--color-gray-200);
+  box-sizing: border-box;
+  width: 339px;
+  height: 50px;
+}
+
+.login_container_intro {
+  background-color: var(--color-tomato);
+  border-radius: var(--br-5xs);
+  cursor: pointer;
+}
+
+.or_intro {
+  text-align: center;
+  width: 339px;
+}
+
+#intro_signup_mobile {
+  display: none;
+}
+
+.register_container_intro {
+  border: 3px solid var(--color-tomato);
+  box-sizing: border-box;
+  color: var(--color-tomato);
+  border-radius: var(--br-5xs);
+  width: 339px;
+  height: 48px;
+  text-align: center;
+  font-size: var(--regular-20px-28-size);
+  cursor: pointer;
+}
+
+.login1_intro {
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46.9px;
+  border-radius: var(--br-5xs);
+  height: 48px;
+  text-align: center;
+  font-size: var(--regular-20px-28-size);
+}
+
+nav {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-gray-100);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  padding: 0 15px 0 15px;
+  width: 100%;
+  height: 80px;
+  font-size: var(--font-size-mini);
+}
+
+.burger_menu {
+  display: none;
+}
+
+.menu_options {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.menu_items {
+  display: inline-flex;
+  justify-content: center;
+  height: 80px;
+}
+
+.register_btn,
+.login_btn {
+  border-radius: var(--br-5xs);
+  width: 114px;
+  height: 44px;
+  text-align: center;
+  font-size: var(--font-size-mid);
+  border-color: var(--color-tomato);
+  cursor: pointer;
+}
+
+.register_btn {
+  background-color: var(--color-gray-100);
+  border: 2px solid var(--color-tomato);
+  box-sizing: border-box;
+  color: var(--color-tomato);
+  margin-right: 10px;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.logo>img {
+  height: 40px;
+}
+
+.login_btn {
+
+  background-color: var(--color-tomato);
+  color: white;
+  border-style: none;
+}
+
+.homepage {
+  background-color: var(--color-gray-200);
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 20px;
+}
+
+.mobile_banner {
+  display: none;
+}
+
+.banner_section {
+  position: relative;
+  width: 90%;
+  height: 344px;
+  color: var(--color-white);
+  border-radius: var(--br-5xs);
+  background-image: url(../assets/urvashi-banner.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 42px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  font-size: var(--font-size-lg);
+}
+
+.play_icon,
+.info_icon {
+  position: absolute;
+  left: 10%;
+  height: 25px;
+  width: 25px;
+
+}
+
+.watch-video {
+  position: absolute;
+  top: 0;
+  left: 45.8px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 121.2px;
+  height: 51.4px;
+}
+
+.watch-video-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 216px;
+  left: 61px;
+  border-radius: var(--br-5xs);
+  background-color: var(--color-tomato);
+  width: 179px;
+  height: 53px;
+  cursor: pointer;
+}
+
+.learn-more {
+  position: absolute;
+  top: 0;
+  left: 53.9px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100.8px;
+  height: 51.4px;
+}
+
+.learn-more-wrapper {
+  position: absolute;
+  top: 216px;
+  left: 255px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--br-5xs);
+  border: 2px solid var(--color-white);
+  box-sizing: border-box;
+  width: 176px;
+  height: 53px;
+  cursor: pointer;
+}
+
+.blob1 {
+  position: absolute;
+  left: 0;
+  border-radius: var(--br-5xs);
+}
+
+.blob2 {
+  position: absolute;
+  left: 20%;
+  border-radius: var(--br-5xs);
+}
+
+.blob3 {
+  position: absolute;
+  right: 0;
+  border-radius: var(--br-5xs);
+}
+
+.blob4 {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--br-5xs);
+}
+
+.profile_section_cards {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.chat-and-connect,
+.experience-stardom {
+  position: absolute;
+  left: 61px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.experience-stardom {
+  top: 68px;
+  font-size: 46px;
+  line-height: 54px;
+  font-weight: 600;
+  width: 509px;
+  animation: drop-in 1s ease 200ms backwards;
+}
+
+.chat-and-connect {
+  top: 129px;
+  font-size: var(--regular-24px-32-size);
+  line-height: 32px;
+  width: 353px;
+  animation: drop-in 1200ms ease 300ms backwards;
+}
+
+@keyframes drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+.explore_bollywood_section,
+.explore_influencers_section,
+.explore_sport_influencers_section,
+.how_to_use_section {
+  width: 100%;
+  padding: 10px 75px 50px 75px;
+  position: relative;
+}
+
+.explore_influencers_section {
+  background-color: var(--color-light-black);
+}
+
+.profile_cards {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.profile {
+  flex-basis: calc(20% - 16px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 370px;
+  border-radius: 11px;
+  box-shadow: 0px 0px 74px 0px rgba(0, 0, 0, 0.93);
+}
+
+
+
+
+
+.Explore_Sport_Influencers,
+.Explore_Bollywood,
+.Explore_Influencers {
+  font-size: 28px;
+  color: var(--color-white);
+  font-weight: 700;
+  padding-left: 80px;
+  width: inherit;
+  margin-top: 50px;
+}
+
+
+.Explore_Influencers {
+  background-color: var(--color-light-black);
+
+}
+
+.Explore_Sport_Influencers>span,
+.Explore_Bollywood>span,
+.Explore_Influencers>span {
+  color: var(--color-tomato);
+}
+
+
+.taapsee_Pannu_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Taapsee-Pannu@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.urvashi_Rautela_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Urvashi-Rautela@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.sukhwinder_Singh_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Sukhwinder-Singh@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.malaika_Arora_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Malaika-Arora@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.karan_Johar_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Karan-Johar@2x.png), lightgray 50% / cover no-repeat;
+
+  background-size: cover;
+}
+
+.agnijita_Banerjee_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Agnijita-Banerjee@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.hema_Adhikari_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Hema-Adhikari@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.rugees_Vini_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Rugees-Vini@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.shalini_Chopra_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Shalini-Chopra@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.nilam_Parmar_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Nilam-Parmar@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+
+.virat_Kohli_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Virat-Kohli@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.dhoni_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Dhoni@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.geeta_Phogat_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Geeta-Phogat@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.rani_Rampal_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Rani-Rampal@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+.guru_Mann_profile {
+  background: linear-gradient(2deg, rgba(0, 0, 0, 0.79) 15.8%, rgba(0, 0, 0, 0.00) 55.83%), url(../assets/Celebrity-profiles/Guru-Mann@2x.png), lightgray 50% / cover no-repeat;
+  background-size: cover;
+}
+
+
+.start {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  color: white;
+  opacity: 0;
+}
+
+
+/* ------------animation--------------- */
+
+
+.horizontal_line,
+.filmmaker-and-television {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.profile:hover .horizontal_line {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+.profile:hover .filmmaker-and-television {
+  opacity: 0;
+  transform: translateY(50%);
+}
+
+.profile:hover .red_circle {
+  transform: translate(-86px, 45px);
+}
+
+.profile:hover .start {
+  opacity: 1;
+}
+
+
+
+
+
+/* ------------------animation----------------- */
+
+.coming_soon_popup_inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+
+.coming_soon_popup_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  text-align: center;
+
+}
+
+.coming_soon_heading {
+  font-size: 25px;
+  width: 90%;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.coming_soon_para {
+
+  font-size: 14px;
+  width: 90%;
+}
+
+.comming_soon_close_btn {
+  width: 90%;
+  height: 42px;
+  border-radius: 7px;
+  background: #2D477D;
+  font-weight: 900;
+}
+
+
+.coming_soon_popup {
+  position: fixed;
+  height: 50%;
+  width: 25%;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.19);
+  background: #262F4D;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  animation: myAnim 1s ease 0s 1 normal forwards;
+  transform-origin: center;
+}
+
+@keyframes myAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+
+.soon_popup {
+  color: var(--color-tomato);
+}
+
+.close_popup {
+  width: 25px;
+  height: 25px;
+  background-image: url(../assets/close.png);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.horizontal_line {
+  position: relative;
+  margin-top: 95%;
+  width: 100%;
+  height: 1px;
+  opacity: 0.4;
+  background: #FFF;
+}
+
+.profile_center {
+  width: 100%;
+}
+
+.red_circle {
+  width: 44px;
+  height: 44px;
+  background: var(--color-tomato) url(../assets/message.svg) center/50% no-repeat;
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.37));
+  border-radius: 37px;
+  position: absolute;
+  right: 20px;
+  bottom: 90px;
+  transition: transform 0.5s ease;
+}
+
+.members_only {
+  position: absolute;
+  bottom: 2px;
+  color: white;
+}
+
+.members_span {
+  color: var(--color-tomato);
+}
+
+.celeb_name {
+  text-align: left;
+  font-size: var(--font-size-2xl);
+  line-height: 1.6;
+}
+
+.filmmaker-and-television {
+  color: var(--color-white);
+  padding: 20px;
+  width: 100%;
+  position: relative;
+}
+
+.bottom_text {
+  font-size: 1.0rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+
+}
+
+.how_to_use_section {
+  display: flex;
+  justify-content: space-between;
+  height: 529px;
+  flex-shrink: 0;
+  border: 1px solid #3A3A3A;
+  background-color: var(--color-light-black);
+  padding: 40px 75px 40px 75px;
+}
+
+.theory_how_to_use {
+  font-size: var(--font-size-base);
+  line-height: 27px;
+  display: inline-block;
+  width: 618px;
+  height: 133px;
+  color: white;
+
+}
+
+
+.how-to-use-container {
+  font-size: 25px;
+  line-height: 44px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+
+}
+
+.how-to-use {
+  margin-left: 3px;
+  color: var(--color-white);
+}
+
+.ai-chat {
+  color: var(--color-tomato);
+  line-height: 30px;
+}
+
+.lorem_ipsum_dolor {
+
+  text-align: justify;
+  font-size: 15px !important;
+  line-height: 24px !important;
+}
+
+.video_show {
+  width: 50%;
+  height: 100%;
+  background-color: #ec4036;
+  border-radius: 8px;
+  background-image: url(../assets/slide-img.jpg);
+  background-size: cover;
+}
+
+
+.play_btn {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play_btn_icon {
+  position: absolute;
+  margin-left: 5px;
+  margin-top: 5px;
+  width: 60px;
+  height: 60px;
+}
+
+.mobile_footer {
+  display: none;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
+  width: 100%;
+  height: 391px;
+  flex-shrink: 0;
+  background-color: var(--color-gray-100);
+  color: white;
+}
+
+.lorem-ipsum-dolor1 {
+  line-height: 22px;
+  width: 350px;
+  height: 109px;
+}
+
+.Facebook_icon {
+  margin-right: 10px;
+}
+
+.social_icons {
+  display: flex;
+  cursor: pointer;
+}
+
+.Facebook_icon,
+.instagram_icon {
+  width: 46px;
+  height: 46px;
+}
+
+.Facebook_icon:hover,
+.instagram_icon:hover {
+  border-radius: 50px;
+  background-color: var(--color-tomato);
+}
+
+
+.footer_left {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.footer_logo {
+  width: 213px;
+  height: 51px;
+}
+
+.sitemap_parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  height: inherit;
+  width: 199px;
+  height: 198px;
+  font-size: var(--font-size-mid);
+
+}
+
+.footer_sitemap_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: inherit;
+}
+
+.terms_and_condidions {
+  font-size: var(--font-size-xl);
+  line-height: 38px;
+  text-align: center;
+  display: inline-block;
+  height: 155px;
+}
+
+.visa_icon {
+  width: 154px;
+  height: 46px;
+  object-fit: cover;
+}
+
+
+
+
+/* -------------chat-box------------------- */
+
+.chatroom_area {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gray-200);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar_profile_section {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border: 1px solid #363636;
+  width: 288px;
+  background-color: var(--color-gray-200);
+  height: 100%;
+  z-index: 1000;
+}
+
+
+.profile_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  color: var(--color-white);
+  border: 1px solid #363636;
+  background: #0A0F1F;
+  padding-left: 25px;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
   overflow-x: hidden;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.back_btn {
+  width: 40.587px;
+  height: 40px;
+  border-radius: 5px;
+  background: #EC4036;
+  background-image: url(../assets/left-arrow.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+
+.custom_input {
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.search_bar {
+  width: 243px;
+  height: 42px;
+  flex-shrink: 0;
+  background-color: var(--color-gray-200);
+  border: 1px solid var(--color-white);
+}
+
+.search_bar::placeholder {
+  padding-left: 10px;
+}
+
+
+.svg_icon {
+  position: absolute;
+  right: 40px;
+  fill: #929292;
+  width: 18px;
+  height: 18px;
+}
+
+.search_bar_section {
+  padding: 0 25px 10px 25px;
+}
+
+.back_process {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  width: 100%;
+}
+
+.chats_text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  padding-left: 10px;
+  color: #FFF;
+  width: 173px;
+  height: 68px;
+}
+
+
+.chat_profile_options {
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+
+.profile_page {
+  display: none;
+}
+
+.rectangle-icon {
+  background-image: url(../assets/Celebrity-profiles/Taapsee-Pannu.png);
+  background-size: cover;
+  border-radius: 37px;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+
+.urvashi_pic {
+  background-image: url(../assets/Celebrity-profiles/Urvashi-Rautela.png);
+  background-size: cover;
+  border-radius: 37px;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.sukhwinder_pic {
+  background-image: url(../assets/Celebrity-profiles/Sukhwinder-Singh.png);
+  background-size: cover;
+  border-radius: 37px;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.karan_pic {
+  background-image: url(../assets/Celebrity-profiles/Karan-Johar.png);
+  background-size: cover;
+  border-radius: 37px;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+
+
+.malaika_pic {
+  background-image: url(../assets/Celebrity-profiles/Malaika-Arora.png);
+  background-size: cover;
+  border-radius: 37px;
+  width: 45px;
+  height: 45px;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.rectangle-group {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  width: 100%;
+  height: 66px;
+  gap: 10px;
+  position: sticky;
+  cursor: pointer;
+  border-radius: 10px 0px 0px 10px;
+
+
+}
+
+/* ------------------------------------------------------------ */
+.activeProfile {
+  background-color: #929292;
+}
+
+.filmmaker-and-television2 {
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 13px;
+  width: auto;
+}
+
+.taapsee-pannu-parent {
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+
+}
+
+
+
+
+
+/* -----------------------sign-up-page------------------------- */
+
+
+.signup_section {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border-radius: 10px;
+  background-color: var(--color-gray-200);
+  width: 424px;
+  height: 535px;
+  overflow: hidden;
+  max-width: 90%;
+  max-height: 90%;
+  text-align: left;
+  font-size: var(--font-size-3xl);
+  color: var(--color-white);
+  font-family: var(--regular-16px-24);
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.members-only {
+  position: absolute;
+  top: 35px;
+  left: 41px;
+  font-size: 28px;
+  line-height: 24px;
+  display: inline-block;
+  width: 384px;
+}
+
+.please-login {
+  top: 90px;
+  left: 42px;
+  width: 328px;
+}
+
+.or,
+.password,
+.please-login,
+.username {
+  position: absolute;
+  line-height: 25px;
+  display: inline-block;
+}
+
+.or {
+  top: 391px;
+  left: 42px;
+  text-align: center;
+  width: 339px;
+}
+
+.password,
+.username {
+  top: 129px;
+  left: 41px;
+  font-size: var(--font-size-lg);
+  width: 328px;
+  height: 20px;
+}
+
+.password {
+  top: 224px;
+}
+
+.frame-child3,
+.rectangle-div {
+  position: absolute;
+  top: 160px;
+  left: 42px;
+  padding: 10px;
+  font-size: larger;
+  color: var(--color-white);
+  border-radius: var(--br-2xs);
+  border: 1px solid var(--color-white);
+  background-color: var(--color-gray-200);
+  box-sizing: border-box;
+  width: 339px;
+  height: 50px;
+}
+
+.frame-child3 {
+  top: 255px;
+}
+
+.login1 {
+  position: absolute;
+  top: 0;
+  left: 1.9px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 337.1px;
+  height: 46.9px;
+}
+
+.login-container,
+.register-container {
+  position: absolute;
+  left: 42px;
+  border-radius: var(--br-5xs);
+  width: 339px;
+  height: 48px;
+  text-align: center;
+  font-size: var(--regular-20px-28-size);
+}
+
+.login-container {
+  top: 322.5px;
+  background-color: var(--color-tomato);
+}
+
+.register-container {
+  top: 441px;
+  border: 3px solid var(--color-tomato);
+  box-sizing: border-box;
+  color: var(--color-tomato);
+}
+
+.iconplus {
+  position: absolute;
+  top: 35px;
+  left: 337px;
+  width: 28.3px;
+  height: 28.3px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+
+/* Tablet styles */
+@media only screen and (max-width: 768px) {
+  /* .homepage {
+    width: 100;
+  } */
+
+
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 1300px) {
+  .intro_screen {
+    background: linear-gradient(1deg, #0A0F1F 0.34%, rgba(10, 15, 31, 0.21) 99.44%), url(../assets/slide-img.jpg);
+    animation: scrollBackground 60s linear infinite;
+    background-size: cover;
   }
+
+  @keyframes scrollBackground {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: 100% 0;
+    }
+  }
+
+  #intro_logo {
+    width: 213px;
+    height: 51px;
+    bottom: 60%;
+    transform: translate(-35%, 50%);
+    animation: none;
+  }
+
+  #intro_signup {
+    display: none;
+  }
+
+  .signup_btn_mobile {
+    display: block;
+    position: absolute;
+    bottom: 10%;
+    visibility: hidden;
+    opacity: 0;
+    animation: fadeIn 1s 2s forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  #intro_signup_mobile {
+    display: block;
+  }
+
+  .signup_section {
+    display: none;
+    max-width: 95%;
+    max-height: 90%;
+
+
+    /* opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s; */
+  }
+
+
+
+
+  /* .signup_section.show {
+
+    opacity: 1;
+    transform: translate(-220px, -220px);
+  } */
+
+  /* .members-only {
+    display: none;
+  } */
+
+
+  /* .iconplus{
+    
+  } */
+
+
+  .rectangle-div,
+  .frame-child3 {
+    width: 80%;
+
+  }
+
+
+  .or {
+    left: 0;
+    width: 100%;
+  }
+
+  .login1 {
+    left: 0;
+    width: 100%;
+  }
+
+
+  .login-container,
+  .register-container {
+    color: var(--color-white);
+    background-color: var(--color-dark-blue-grey);
+    border: 2px solid var(--color-light-blue-grey);
+    width: 80%;
+
+  }
+
+  nav {
+    /* position: fixed; */
+    z-index: 1000;
+    position: sticky;
+    top: 0;
+    height: 60px;
+    /* width: 100vw; */
+  }
+
+  .homepage {
+    padding: 0;
+    gap: 0;
+    /* height: 100vh; */
+    flex-direction: column;
+    height: 100%;
+  }
+
+
+  .logo>img {
+    width: 122px;
+    height: 29px;
+
+  }
+
+  .burger_menu {
+    display: block;
+  }
+
+
+  .login_container_intro,
+  .register_container_intro {
+    color: var(--color-white);
+    background-color: #061635;
+    border: 2px solid var(--color-gray-200);
+    border: 2px solid var(--color-light-blue-grey);
+    text-align: center;
+    width: 90vw;
+  }
+
+  .banner_section,
+  .nav_list,
+  .signup_btn,
+  .how_to_use_section,
+  footer {
+    display: none;
+  }
+
+  .mobile_banner {
+    display: flex;
+    /* width: 329.312px; */
+    width: 95vw;
+    height: 175.851px;
+    background-image: url(../assets/slide-img.jpg);
+    background-size: cover;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: 0.5px solid var(--color-dark-blue-grey);
+    position: relative;
+  }
+
+  .video {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    margin-left: 0;
+    margin-right: 0;
+
+  }
+
+  .banner_play {
+    background-image: url(../assets/play.svg);
+    background-size: 78px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: var(--color-light-black);
+    opacity: 0.51;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+
+  .mobile_footer {
+    display: flex;
+    position: sticky;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0;
+    z-index: 100;
+    height: 55px;
+    border: 1px solid #1C1A51;
+    background: #0D152F;
+    box-shadow: 0px 0px 61px 0px rgba(29, 54, 183, 0.25);
+  }
+
+  .mobile_footer_icon {
+    color: var(--color-white);
+  }
+
+  .mobile_footer_icon:first-child {
+    color: var(--color-tomato);
+  }
+
+  .mobile_footer_icon:hover {
+    color: var(--color-tomato);
+  }
+
+
+
+  .explore_bollywood_section,
+  .explore_influencers_section,
+  .explore_sport_influencers_section {
+    padding: 20px 10px 20px 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+
+  .explore_bollywood_section::-webkit-scrollbar,
+  .explore_influencers_section::-webkit-scrollbar,
+  .explore_sport_influencers_section::-webkit-scrollbar {
+    display: none;
+  }
+
+  .explore_sport_influencers_section {
+    margin-bottom: 10px;
+  }
+
+  .explore_influencers_section {
+    background-color: var(--color-gray-200);
+    border: none;
+  }
+
+
+  .profile_cards {
+    min-width: fit-content;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    gap: 10px;
+
+  }
+
+  .horizontal_line {
+    display: none;
+  }
+
+  .profile_cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .profile {
+    justify-content: flex-end;
+    width: 140px;
+    height: 220px;
+    box-shadow: none;
+    opacity: 1;
+    transition: opacity 1s ease 0s;
+  }
+
+  .profile:hover {
+    opacity: 0.6;
+  }
+
+  .members_only {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    margin-bottom: 2px;
+  }
+
+
+  .Explore_Sport_Influencers,
+  .Explore_Bollywood,
+  .Explore_Influencers {
+    padding: 2px;
+    font-size: 17px;
+    padding-left: 15px;
+    margin-top: 20px;
+  }
+
+  .Explore_Influencers {
+    background-color: inherit;
+  }
+
+
+  .celeb_name {
+    font-size: 13px;
+  }
+
+  .bottom_text {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+  }
+
+
+  .filmmaker-and-television {
+    color: var(--color-white);
+    padding: 10px;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
+    height: 40%;
+    background: #202946;
+  }
+
+
+  .start {
+    display: none;
+  }
+
+  .red_circle {
+    width: 30.933px;
+    height: 30.973px;
+    background-size: 60%;
+    right: 10px;
+    bottom: 76px;
+    z-index: 1;
+  }
+
+  .red_circle:hover {
+    width: 40.933px;
+    height: 40.973px;
+  }
+
+  .chatroom_area {
+    background-color: var(--color-gray-200);
+    display: block;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .sidebar_profile_section {
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  .search_bar {
+    width: 100%;
+  }
+
+  .main_chatroom_section {
+
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-gray-300);
+  }
+
+  .chat_profile_options {
+    width: 100%;
+    justify-content: space-between;
+
+  }
+
+  .chats_text {
+    display: none;
+  }
+
+  .taapsee-pannu-parent {
+    width: 80%;
+  }
+
+  .rectangle-group {
+    padding-left: 20px;
+  }
+
+  .taapsee-pannu {
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px;
+    /* 160% */
+  }
+
+  .profile_header {
+    top: 0;
+
+  }
+
+  .filmmaker-and-television2 {
+    width: 100%;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 13px;
+    /* 92.857% */
+  }
+
+  .profile_page {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: var(--color-gray-200);
+    gap: 10px;
+    transition: filter 0.5s ease;
+
+  }
+
+  .blur-background {
+    filter: blur(5px);
+  }
+
+  .tapsee_pannu_profile_background {
+    background: linear-gradient(0deg, #0A0F1F 0%, rgba(10, 15, 31, 0.00) 72.93%), url(../assets/profile/Taapsee-Pannu-bg.png), lightgray 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+  }
+
+  .malaika_arora_profile_background {
+    background: linear-gradient(0deg, #0A0F1F 0%, rgba(10, 15, 31, 0.00) 72.93%), url(../assets/profile/MalaikaArora-BG.png), lightgray 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+  }
+
+  .sukhwinder_singh_profile_background {
+    background: linear-gradient(0deg, #0A0F1F 0%, rgba(10, 15, 31, 0.00) 72.93%), url(../assets/profile/Sukhwinder-Singh-BG.png), lightgray 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+  }
+
+
+
+  .karan_johar_profile_background {
+    background: linear-gradient(0deg, #0A0F1F 0%, rgba(10, 15, 31, 0.00) 72.93%), url(../assets/profile/Karan-Johar-BG.png), lightgray 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+  }
+
+  .urvashi_rautela_profile_background {
+
+    background: linear-gradient(0deg, #0A0F1F 0%, rgba(10, 15, 31, 0.00) 72.93%), url(../assets/profile/Urvashi-Rautela-bg.png), lightgray 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    z-index: -1;
+
+  }
+
+  .popup_info {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    flex-shrink: 0;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.19);
+    background-color: #262F4D;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .popup_background {
+    border-radius: 10px 10px 0px 0px;
+  }
+
+  .profile_paragraph {
+
+    display: flex;
+    flex-direction: column;
+    height: 45%;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+
+  }
+
+  .close_btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
+
+  }
+
+  .first_para {
+
+    color: #FFF;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+  }
+
+  .second_para {
+    color: #FFF;
+    width: 90%;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  li {
+    list-style-type: decimal;
+    display: list-item;
+    color: #FFF;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 10px;
+  }
+
+
+  .popup_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: inherit;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: "Source Sans Pro";
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    border-radius: 7px;
+    background: #2D477D;
+  }
+
+  .popup_arrow {
+    position: absolute;
+    right: 50px;
+  }
+
+  .profile_name {
+    color: #FFF;
+    text-align: center;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .profile_discription {
+    color: #FFF;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .primary_btn {
+    display: flex;
+    justify-content: space-between;
+
+    width: 90vw;
+  }
+
+  .secondary_btn {
+    width: 90vw;
+  }
+
+  .subscribe,
+  .talk_2_me {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 44vw;
+    height: 50px;
+    border-radius: 7px;
+    border: 2px solid #4967A6;
+    background: #0A0F1F;
+
+    gap: 10px;
+    color: #85A0D9;
+    text-align: center;
+
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+  }
+
+  .horizontal {
+    width: 90vw;
+    height: 1px;
+    margin: 10px 0 10px 0;
+    background: #354269;
+  }
+
+
+
+  .services {
+    color: #7585CB;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    display: flex;
+    width: 321px;
+    height: 17px;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+
+  }
+
+  .get_advice,
+  .learn,
+  .gifts {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    color: #B5CDFF;
+    text-align: center;
+    padding: 0 10px 0 10px;
+    background-color: #061635;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    border: 2px solid #4967A6;
+    border-radius: 7px;
+  }
+
+  .back_btn_profile {
+    background-image: url(../assets/left-arrow.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80.587px;
+    height: 80px;
+
+  }
+
+  .register_page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(180deg, #0A0F1F 0%, rgba(10, 15, 31, 0.55) 126.45%), url(../assets/slide-img.jpg);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    background-color: var(--color-gray-200);
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .navigate_back {
+    position: fixed;
+    top: 0;
+    background-color: var(--color-light-black);
+    width: 100vw;
+    height: 62px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  .back_btn_register {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 30px;
+    background-image: url(../assets/left-arrow.png);
+    margin-top: 10px;
+    background-repeat: no-repeat;
+    background-size: 40px;
+  }
+
+  .register_heading {
+    color: #FFF;
+    font-family: "Source Sans Pro";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+  }
+
+  .register_slide_img {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .input_sections {
+    width: 90%;
+    height: 90%;
+
+  }
+
+  .input_head {
+    color: #FFF;
+    font-family: "Source Sans Pro";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+  }
+
+  .input_sections>input {
+    color: var(--color-white);
+    background-color: var(--color-gray-200);
+    border-radius: 8px;
+    border: 1px solid #5D7FC2;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .radio_btn {
+    margin-top: 20px;
+    display: flex;
+    color: var(--color-white);
+    gap: 15px;
+  }
+
+
+  .input_radio {
+    height: 20px !important;
+    width: 20px !important;
+
+  }
+
+  .register_page_btn {
+    display: flex;
+    width: 100%;
+    height: 46.909px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #B5CDFF;
+    text-align: center;
+
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 600;
+    border-radius: 8px;
+    background-color: #061635;
+    border: 2px solid #B5CDFF;
+    margin-top: 30px;
+  }
+
+
+
+  .login_page {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(0deg, #0A0F1F 64.98%, rgba(10, 15, 31, 0.28) 108.46%), url(../assets/slide-img.jpg);
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    z-index: 1000;
+    background-color: var(--color-gray-200);
+    gap: 10px;
+  }
+
+  .login_page_btn>.register_page_btn {
+    margin-top: 0 !important;
+    margin-bottom: 40px !important;
+  }
+
+  .login_page_logo {
+    background-image: url(../assets/logo.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    height: 25vh;
+    width: 100vw;
+  }
+
+  .Please_login {
+    color: #FFF;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    text-align: left;
+    width: 90%;
+  }
+
+  .login_page_btn {
+    width: 90%;
+  }
+
+  .login_or {
+    position: absolute;
+    color: #FFF;
+    text-align: center;
+    -webkit-text-stroke-width: 4;
+    -webkit-text-stroke-color: #0A0F1F;
+    font-family: "Source Sans Pro";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    z-index: 10;
+    background-color: var(--color-gray-200);
+  }
+
+  .or_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    margin-bottom: 40px;
+  }
+
+  .hr_line {
+
+    width: 100%;
+    height: 1px;
+    background: #A5A5A5;
+
+  }
+
+  .skip {
+    color: white;
+    text-decoration: underline;
+  }
+
+  .horizontal_line,
+  .filmmaker-and-television,
+  .red_circle,
+  .start {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+
+  }
+
+  .coming_soon_popup_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+
+
+  .coming_soon_popup_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    text-align: center;
+  }
+
+  .coming_soon_heading {
+    font-size: 25px;
+    width: 90%;
+    font-weight: 900;
+    margin-bottom: 10px;
+  }
+
+  .coming_soon_para {
+
+    font-size: 14px;
+    width: 90%;
+  }
+
+  .comming_soon_close_btn {
+    width: 90%;
+    height: 45px;
+    border-radius: 7px;
+    background: #2D477D;
+  }
+
+  .coming_soon_popup {
+    width: 90%;
+    height: 60%;
+    font-size: 17px;
+    border-radius: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.19);
+
+    background: #262F4D;
+    animation: myAnim 1s ease 0s 1 normal forwards;
+    transform-origin: center;
+  }
+
+  @keyframes myAnim {
+    0% {
+      transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+
+  .soon_popup {
+    color: var(--color-tomato);
+    margin-left: 5px;
+
+  }
+
+  .close_popup {
+    background-size: 80%;
+    top: 15px;
+    right: 10px;
+  }
+
+  .Facebook_icon,
+  .instagram_icon {
+    display: none;
+  }
+
 }
