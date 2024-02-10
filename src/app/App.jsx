@@ -11,7 +11,7 @@ import Group from "../assets/group.png";
 // import Play from "../assets/play.png";
 import ReactPlayer from "react-player";
 import ReactModal from "react-modal";
-import Navbar from "../components/Navbar";
+import Navbar from "./components/navbar.jsx";
 
 import ReactGA from "react-ga4";
 
