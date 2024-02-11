@@ -3,8 +3,8 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: #397524 #DFE9EB;
+  /* scrollbar-width: thin;
+  scrollbar-color: var(--color-tomato) #DFE9EB; */
 }
 
 *::-webkit-scrollbar {
@@ -39,8 +39,11 @@
 }
 
 body {
-  font-family: var(--regular-24px-32);
+  
   background-color: var(--color-gray-200);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 :root {
@@ -824,9 +827,9 @@ nav {
 }
 
 .lorem_ipsum_dolor {
-
+  white-space: normal;
   text-align: justify;
-  font-size: 15px !important;
+  font-size: 13.2px !important;
   line-height: 24px !important;
 }
 

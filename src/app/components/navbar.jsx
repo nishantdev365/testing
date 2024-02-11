@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="menu_options">
          
           <div className="logo">
-            <Image src={Logo} alt="Celebfie"  />
+            <Image src={Logo} alt="Celebfie" width={180} />
           </div>
      
          

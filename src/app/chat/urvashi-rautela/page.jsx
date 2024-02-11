@@ -86,7 +86,7 @@ const UrvashiChatPage = () => {
       label: 'BackButton',
     });
     
-    router.back("/");
+    router.push("/");
   };
 
   const handleChatroomInteraction = () => {

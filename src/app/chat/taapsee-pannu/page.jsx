@@ -94,7 +94,7 @@ const TaapseeChatPage = () => {
       label: 'BackButton',
     });
 
-    router.back("/");
+    router.push("/");
   };
 
   const handleChatroomInteraction = () => {

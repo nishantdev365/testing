@@ -80,7 +80,7 @@ const KaranChatPage = () => {
 
   const handleCardClick = () => {
     
-      router.back("/");
+    router.push("/");
  
   };
 

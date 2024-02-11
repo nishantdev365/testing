@@ -90,7 +90,7 @@ const SukhwinderChatPage = () => {
 
   const handleCardClick = () => {
   
-    router.back("/");
+    router.push("/");
    
   };
 
