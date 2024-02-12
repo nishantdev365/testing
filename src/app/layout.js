@@ -69,7 +69,7 @@ export default function RootLayout({ children }) {
         <body className={sans.className}>
         {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
             <GoogleAnalytics ga_id= 
-            "G-21486S7D0P" />
+            {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
           ) : null}
           {children}
         
