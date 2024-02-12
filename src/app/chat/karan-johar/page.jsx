@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -79,42 +79,11 @@ const KaranChatPage = () => {
   }, []);
 
   const handleCardClick = () => {
-    
     router.push("/");
- 
   };
 
   return (
     <>
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>Karan Johar</title>
-        <meta name="description" content="Producer, Director and TV host" />
-        <link
-          rel="canonical"
-          href="https://celebfie.vercel.app/chat/karan-johar"
-        />
-        <link
-          rel="icon"
-          href="https://res.cloudinary.com/dzhl8bgd9/image/upload/v1705656033/rpw8cgny9xvuecv9tcho.png"
-        />
-
-        <meta property="og:title" content="Karan Johar" />
-        <meta
-          property="og:description"
-          content="Producer, Director and TV host"
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dzhl8bgd9/image/upload/v1705656033/rpw8cgny9xvuecv9tcho.png"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://celebfie.vercel.app/chat/karan-johar"
-        />
-      </Helmet> */}
-
       <div className="profile_header">
         <div className="back_btn" onClick={handleCardClick}></div>
 

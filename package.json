@@ -14,7 +14,8 @@
     "react-dom": "^18",
     "react-ga4": "^2.1.0",
     "react-modal": "^3.16.1",
-    "react-player": "^2.14.1"
+    "react-player": "^2.14.1",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "eslint": "^8",

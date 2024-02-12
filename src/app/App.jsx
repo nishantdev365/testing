@@ -1,7 +1,7 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 import { useState, useEffect } from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import Logo from "../assets/logo.svg";
@@ -22,7 +22,7 @@ const Home = () => {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   useEffect(() => {
-    ReactGA.send({ hitType: "pageview", page: location.pathname })
+    ReactGA.send({ hitType: "pageview", page: location.pathname });
   }, []);
 
   useEffect(() => {
@@ -75,21 +75,19 @@ const Home = () => {
 
   const handlTaapseePage = () => {
     ReactGA.event({
-      category: 'CelebrityProfile',
-      action: 'Click',
-      label: 'Taapsee Pannu',
+      category: "CelebrityProfile",
+      action: "Click",
+      label: "Taapsee Pannu",
     });
 
     router.push("/chat/taapsee-pannu");
-    
   };
-
 
   const handlUrvashiPage = () => {
     ReactGA.event({
-      category: 'CelebrityProfile',
-      action: 'Click',
-      label: 'Urvashi Rautela',
+      category: "CelebrityProfile",
+      action: "Click",
+      label: "Urvashi Rautela",
     });
 
     router.push("/chat/urvashi-rautela");
@@ -109,31 +107,7 @@ const Home = () => {
 
   return (
     <>
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>Celebfie</title>
-        <meta name="description" content="Talk with Virtual Celebrities" />
-        <link rel="canonical" href="https://celebfie.vercel.app" />
-        <link
-          rel="icon"
-          href="https://res.cloudinary.com/dzhl8bgd9/image/upload/v1705949513/prfdawpa7qmthwtk3tcb.png"
-        />
-
-        <meta property="og:title" content="Celebfie" />
-        <meta
-          property="og:description"
-          content="Talk with Virtual Celebrities"
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dzhl8bgd9/image/upload/v1705949513/prfdawpa7qmthwtk3tcb.png"
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://celebfie.vercel.app" />
-      </Helmet> */}
-
-
-        <Navbar />
+      <Navbar />
       <section className="homepage">
         <div className="mobile_banner">
           <div className="banner_play" onClick={openModal}></div>
@@ -164,7 +138,9 @@ const Home = () => {
                 },
               }}
             >
-              {/* <button onClick={closeModal}>Close Video</button> */}
+              <button onClick={openModal} className="close_modal_btn">
+                Close
+              </button>
 
               <ReactPlayer
                 url="https://res.cloudinary.com/dzhl8bgd9/video/upload/v1707489924/video_lnrrae.mp4"
@@ -190,7 +166,11 @@ const Home = () => {
                   transform conversations into memorable engagement.
                 </p>
               </div>
-              <button className="comming_soon_close_btn" onClick={ClosePopup}>
+              <button
+                className="comming_soon_close_btn"
+                type="button"
+                onClick={ClosePopup}
+              >
                 Close
               </button>
             </div>
@@ -558,7 +538,7 @@ const Home = () => {
           </div>
           <div className="video_show">
             {/* <div className="play_btn"> */}
-              {/* <Image src={Play} className="play_btn_icon" alt="" />
+            {/* <Image src={Play} className="play_btn_icon" alt="" />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="110"
@@ -568,16 +548,14 @@ const Home = () => {
               >
                 <circle opacity="0.51" cx="55" cy="55" r="55" fill="black" />
               </svg> */}
-          
 
-              <ReactPlayer
-                url="https://res.cloudinary.com/dzhl8bgd9/video/upload/v1707489924/video_lnrrae.mp4"
-                controls={true}
-                width="100%"
-                height="100%"
-               
-                light={true}
-              />
+            <ReactPlayer
+              url="https://res.cloudinary.com/dzhl8bgd9/video/upload/v1707489924/video_lnrrae.mp4"
+              controls={true}
+              width="100%"
+              height="100%"
+              light={true}
+            />
             {/* </div> */}
           </div>
         </div>
@@ -587,7 +565,8 @@ const Home = () => {
         <div className="footer_left">
           <Image className="footer_logo" alt="" src={Logo} />
           <div className="lorem-ipsum-dolor1">
-          Celebfie is a platform where you can chat with your favorite celebrities and get to know them better.
+            Celebfie is a platform where you can chat with your favorite
+            celebrities and get to know them better.
           </div>
           <div className="social_icons">
             <a

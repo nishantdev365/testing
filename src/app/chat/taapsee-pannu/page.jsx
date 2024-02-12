@@ -1,5 +1,5 @@
 // pages/taapsee-chat-page.js
-'use client'
+"use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import ReactGA from "react-ga4";
@@ -11,7 +11,7 @@ const TaapseeChatPage = () => {
 
   useEffect(() => {
     // Your MemberSpace script
-    let MemberSpace = window.MemberSpace || { "subdomain": "celebfie" };
+    let MemberSpace = window.MemberSpace || { subdomain: "celebfie" };
     (function (d) {
       var s = d.createElement("script");
       s.src = "https://cdn.memberspace.com/scripts/widgets.js";
@@ -89,9 +89,9 @@ const TaapseeChatPage = () => {
 
   const handleCardClick = () => {
     ReactGA.event({
-      category: 'ChatPage',
-      action: 'Click',
-      label: 'BackButton',
+      category: "ChatPage",
+      action: "Click",
+      label: "BackButton",
     });
 
     router.push("/");
@@ -99,16 +99,14 @@ const TaapseeChatPage = () => {
 
   const handleChatroomInteraction = () => {
     ReactGA.event({
-      category: 'ChatPage',
-      action: 'Interaction',
-      label: 'ChatpageInteraction',
+      category: "ChatPage",
+      action: "Interaction",
+      label: "ChatpageInteraction",
     });
   };
 
   return (
     <>
-      {/* Your Helmet code can be placed here if needed */}
-
       <div className="profile_header">
         <div className="back_btn" onClick={handleCardClick}></div>
         <div className="rectangle-group" id="profileName">
@@ -135,5 +133,3 @@ const TaapseeChatPage = () => {
 };
 
 export default TaapseeChatPage;
-
-

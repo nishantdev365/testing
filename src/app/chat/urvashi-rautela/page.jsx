@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ReactGA from "react-ga4";
@@ -81,53 +81,24 @@ const UrvashiChatPage = () => {
 
   const handleCardClick = () => {
     ReactGA.event({
-      category: 'ChatPage',
-      action: 'Click',
-      label: 'BackButton',
+      category: "ChatPage",
+      action: "Click",
+      label: "BackButton",
     });
-    
+
     router.push("/");
   };
 
   const handleChatroomInteraction = () => {
     ReactGA.event({
-      category: 'ChatPage',
-      action: 'Interaction',
-      label: 'ChatpageInteraction',
+      category: "ChatPage",
+      action: "Interaction",
+      label: "ChatpageInteraction",
     });
   };
 
   return (
     <>
-      {/* <Helmet>
-        <meta charSet="utf-8" />
-        <title>Urvashi Rautela</title>
-        <meta name="description" content="Bollywood actress, ace dancer" />
-        <link
-          rel="canonical"
-          href="https://celebfie.vercel.app/chat/urvashi-rautela"
-        />
-        <link
-          rel="icon"
-          href="https://res.cloudinary.com/dzhl8bgd9/image/upload/v1705656033/rpw8cgny9xvuecv9tcho.png"
-        />
-
-        <meta property="og:title" content="Urvashi Rautela" />
-        <meta
-          property="og:description"
-          content="Bollywood actress, ace dancer"
-        />
-        <meta
-          property="og:image"
-          content="https://res.cloudinary.com/dzhl8bgd9/image/upload/v1705656033/rpw8cgny9xvuecv9tcho.png"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content="https://celebfie.vercel.app/chat/urvashi-rautela"
-        />
-      </Helmet> */}
-
       <div className="profile_header">
         <div className="back_btn" onClick={handleCardClick}></div>
 
