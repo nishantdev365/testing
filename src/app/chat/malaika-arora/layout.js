@@ -13,7 +13,7 @@ export const metadata = {
     title: "Malaika Arora",
     description: "Indian actress and producer",
     image: "https://res.cloudinary.com/dzhl8bgd9/image/upload/v1707655875/Malaika-Arora_rvjslb.png",
-    url: "https://celebfie.ai${router.asPath}",
+    url: "https://celebfie.ai/chat/malaika-arora",
 
 
     images: [

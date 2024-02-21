@@ -14,7 +14,7 @@ const GoogleAnalytics = ({ ga_id }) => (
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
 
-                    gtag('config', '${ga_id}');
+                    gtag('config', '${ga_id}', {'groups': 'mx'});
                 `,
       }}
     ></Script>

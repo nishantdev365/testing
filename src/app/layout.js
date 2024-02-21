@@ -59,7 +59,6 @@ export default function RootLayout({ children }) {
         <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
         <meta property="og:site_name" content={metadata.openGraph.site_name} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@nextjs" />
         <meta name="twitter:title" content={metadata.openGraph.title} />
         <meta name="twitter:description" content={metadata.openGraph.description} />
         <meta name="twitter:image" content={metadata.openGraph.images[0].url} />

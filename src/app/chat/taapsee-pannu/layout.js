@@ -12,7 +12,7 @@ export const metadata = {
     title: "Taapsee pannu",
     description: "Indian actress and producer",
     image: "https://res.cloudinary.com/dzhl8bgd9/image/upload/v1707655875/Taapsee-Pannu_pseuk1.png",
-    url: "https://celebfie.ai${router.asPath}",
+    url: "https://celebfie.ai/chat/taapsee-pannu",
 
 
     images: [
